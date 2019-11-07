@@ -20,6 +20,6 @@ class SBall implements IPrize
     public function getPrizes(): ?array
     {
         // dump($this->em);
-        return [];
+        return [random_int(1, 1000)];
     }
 }
