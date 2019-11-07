@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Money;
+use App\Entity\Thing;
 use App\Services\Games\GiftsGame;
 use App\Services\SPL as Prize;
 use App\Services\SPL\IPrize;
@@ -55,14 +57,8 @@ class PrizeController extends AbstractController
 
         $gift = $newGame->init();
         $prizeCategory = $newGame->getPrizeCategory();
-        // dump($gift);
 
-        $this->getRender($prizeCategory::NAME, $gift);
-
-        return $this->render('prize/index.html.twig', [
-            'controller_name' => 'PrizeController',
-            'gift' => '$gift',
-        ]);
+        return $this->getRender($prizeCategory::NAME, $gift);
     }
 
     // TODO Interface Prize $gift
@@ -70,17 +66,36 @@ class PrizeController extends AbstractController
     {
         switch ($name) {
             case "Money":
-                dump("Money");
-                dump($gift->getAmount());
-                break;
+                return $this->renderMoney($gift);
             case "Thing":
-                dump('Thing');
-                dump($gift->getName());
-                break;
+                return $this->renderThing($gift);
             case "Ball":
-                dump("Ball");
-                dump($gift);
-                break;
+                return $this->renderBall($gift);
         }
+    }
+
+    private function renderMoney(Money $money)
+    {
+        $moneyAmount = $money->getAmount();
+
+        return $this->render('prize/money.html.twig', [
+            'money' => $moneyAmount,
+        ]);
+    }
+
+    private function renderThing(Thing $thing)
+    {
+        $thingName = $thing->getName();
+
+        return $this->render('prize/thing.html.twig', [
+            'thing' => $thingName,
+        ]);
+    }
+
+    private function renderBall(int $ball)
+    {
+        return $this->render('prize/ball.html.twig', [
+            'ball' => $ball,
+        ]);
     }
 }

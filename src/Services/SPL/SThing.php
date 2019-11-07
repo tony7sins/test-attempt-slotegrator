@@ -29,10 +29,7 @@ class SThing implements IPrize
                     'isEnabled' => true
                 ]
             );
-
-        dump($thing);
+        // dump($thing);
         return $thing;
-
-        // return [3, 5, 8];
     }
 }

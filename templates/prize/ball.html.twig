@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!
+{% block title %}Hello PrizeController!
 {% endblock %}
 
 {% block body %}
@@ -16,11 +16,18 @@
             padding: 2px 6px;
         }
     </style>
+
     <div class="example-wrapper">
-        {% include "inc/play.html.twig" with {
-            signature: 'ИГРАТЬ'
-        } %}
+
+        <h1>ВЫ ПОЛУЧИЛИ БАЛЛЫ✅</h1>
+
+        <h3>
+            BLZ:
+            {{ ball }}!
+        </h3>
+
+        <button>Зачислисть на счет!</button>
+        {% include "inc/play.html.twig" %}
+
     </div>
-
-
-</div>{% endblock %}
+{% endblock %}

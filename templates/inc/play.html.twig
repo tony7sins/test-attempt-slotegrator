@@ -4,5 +4,11 @@
     <input type="hidden" name="token" value="{{ csrf_token('game-token') }}"/>
     <input type="hidden" name="game" value="secret"/>
 
-    <button type="submit">PLAY!</button>
+    <button type="submit">
+        {% if signature is defined %}
+            {{ signature}}
+        {% else %}
+            PLAY!
+        {% endif %}
+    </button>
 </form>
