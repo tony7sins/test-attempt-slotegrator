@@ -44,8 +44,6 @@ class PrizeController extends AbstractController
         //     dump(true);
         // } else dump(false);
 
-        // $prizes = ;
-
         $gift = null;
 
         /** @var GiftsGame $newGame */
@@ -59,8 +57,16 @@ class PrizeController extends AbstractController
         $prizeCategory = $newGame->getPrizeCategory();
         dump($gift);
 
-        // dump($prizeCategory);
-        switch ($prizeCategory::NAME) {
+        $this->getRender($prizeCategory::NAME);
+
+        return $this->render('prize/index.html.twig', [
+            'controller_name' => 'PrizeController',
+        ]);
+    }
+
+    private function getRender(string $name)
+    {
+        switch ($name) {
             case "Money":
                 dump('Money');
                 break;
@@ -71,9 +77,5 @@ class PrizeController extends AbstractController
                 dump('Ball');
                 break;
         }
-
-        return $this->render('prize/index.html.twig', [
-            'controller_name' => 'PrizeController',
-        ]);
     }
 }
