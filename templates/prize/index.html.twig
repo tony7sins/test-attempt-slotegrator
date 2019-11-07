@@ -21,22 +21,9 @@
 
         <h1>{{ gift }}! ✅</h1>
 
-        <h1>Hello
-            {{ controller_name }}! ✅</h1>
+        {% include "inc/play.html.twig" %}
 
+        <h1>Hello{{ controller_name }}! ✅</h1>
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at
-                <code>
-                    <a href="{{ '/Users/macbook/WEB-projects/Job-Slotegrator-test/test-app/src/Controller/PrizeController.php'|file_link(0) }}">src/Controller/PrizeController.php</a>
-                </code>
-            </li>
-            <li>Your template at
-                <code>
-                    <a href="{{ '/Users/macbook/WEB-projects/Job-Slotegrator-test/test-app/templates/prize/index.html.twig'|file_link(0) }}">templates/prize/index.html.twig</a>
-                </code>
-            </li>
-        </ul>
     </div>
 {% endblock %}

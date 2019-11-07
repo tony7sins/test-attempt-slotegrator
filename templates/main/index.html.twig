@@ -16,22 +16,9 @@
             padding: 2px 6px;
         }
     </style>
-
-    {# <div class="example-wrapper">
-                                <h1>Hello Gamer!</h1>
-    
-                                {# <button type="submit">To PLAY!</button> #}
-    <a href="{{ path('prize') }}">To PLAY</a>
+    <div class="example-wrapper">
+        {% include "inc/play.html.twig" %}
+    </div>
 
 
-</div>
-#}
-
-<form
-    action="{{ path('prize')}}" method="post">
-    {# the argument of csrf_token() is an arbitrary string used to generate the token #}
-    <input type="hidden" name="token" value="{{ csrf_token('game-token') }}"/>
-    <input type="hidden" name="game" value="secret"/>
-
-    <button type="submit">Delete item</button>
-</form>{% endblock %}
+</div>{% endblock %}
