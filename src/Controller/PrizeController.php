@@ -55,12 +55,13 @@ class PrizeController extends AbstractController
 
         $gift = $newGame->init();
         $prizeCategory = $newGame->getPrizeCategory();
-        dump($gift);
+        dump(gettype($gift));
 
         $this->getRender($prizeCategory::NAME);
 
         return $this->render('prize/index.html.twig', [
             'controller_name' => 'PrizeController',
+            'gift' => $gift,
         ]);
     }
 

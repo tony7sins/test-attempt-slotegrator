@@ -44,7 +44,7 @@ class GiftsGame
         $this->gifts = $gifts;
     }
 
-    public function init(): ?string
+    public function init()
     {
 
         $category = $this->getGiftCategoty();
