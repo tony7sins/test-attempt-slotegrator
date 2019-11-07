@@ -2,6 +2,7 @@
 
 namespace App\Services\SPL;
 
+use App\Entity\Thing;
 use Doctrine\ORM\EntityManagerInterface;
 
 class SThing implements IPrize
@@ -9,6 +10,8 @@ class SThing implements IPrize
     use TPrize;
 
     const NAME = "Thing";
+
+    const ENTITY = Thing::class;
 
     private $em;
 
@@ -19,7 +22,17 @@ class SThing implements IPrize
 
     public function getPrizes(): ?array
     {
-        // dump($this->em);
-        return [3, 5, 8];
+        $thing = $this->em
+            ->getRepository(self::ENTITY)
+            ->findBy(
+                [
+                    'isEnabled' => true
+                ]
+            );
+
+        dump($thing);
+        return $thing;
+
+        // return [3, 5, 8];
     }
 }

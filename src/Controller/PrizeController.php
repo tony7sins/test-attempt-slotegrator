@@ -55,27 +55,31 @@ class PrizeController extends AbstractController
 
         $gift = $newGame->init();
         $prizeCategory = $newGame->getPrizeCategory();
-        dump(gettype($gift));
+        // dump($gift);
 
-        $this->getRender($prizeCategory::NAME);
+        $this->getRender($prizeCategory::NAME, $gift);
 
         return $this->render('prize/index.html.twig', [
             'controller_name' => 'PrizeController',
-            'gift' => $gift,
+            'gift' => '$gift',
         ]);
     }
 
-    private function getRender(string $name)
+    // TODO Interface Prize $gift
+    private function getRender(string $name, $gift)
     {
         switch ($name) {
             case "Money":
-                dump('Money');
+                dump("Money");
+                dump($gift->getAmount());
                 break;
             case "Thing":
                 dump('Thing');
+                dump($gift->getName());
                 break;
             case "Ball":
-                dump('Ball');
+                dump("Ball");
+                dump($gift);
                 break;
         }
     }

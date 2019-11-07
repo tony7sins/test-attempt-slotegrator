@@ -1,3 +1,15 @@
+
+1. to run project enter commant below from root dir
+   $ php -S localhost:8000 -t /public
+2. to create DB enter in root dir
+   $ bin/console doctrine:database:create
+3.
+
+
+php bin/console doctrine:query:sql "$(< symf4db.sql)"
+
+bin/console doctrine:schema:drop -n -q --force --full-database && rm -rf src/Migrations/*.php && bin/console make:migration && bin/console doctrine:migrations:migrate -n -q
+
 План:
 
 1. Создать полное WEB-приложение

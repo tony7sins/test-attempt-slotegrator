@@ -2,6 +2,7 @@
 
 namespace App\Services\SPL;
 
+use App\Entity\Money;
 use Doctrine\ORM\EntityManagerInterface;
 
 class SMoney implements IPrize
@@ -9,7 +10,9 @@ class SMoney implements IPrize
     use TPrize;
 
     const NAME = "Money";
+    const ENTITY = Money::class;
 
+    /** @var EntityManagerInterface $em */
     private $em;
 
     public function __construct(EntityManagerInterface $em)
@@ -19,7 +22,15 @@ class SMoney implements IPrize
 
     public function getPrizes(): ?array
     {
-        // dump($this->em);
-        return ['money', 'glory'];
+
+        $money = $this->em
+            ->getRepository(self::ENTITY)
+            ->findBy(
+                [
+                    'isEnabled' => true
+                ]
+            );
+
+        return $money;
     }
 }
