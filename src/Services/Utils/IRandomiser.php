@@ -2,11 +2,12 @@
 
 namespace App\Services\Utils;
 
-use App\Entity\Interfaces\IPrize;
-
 interface IRandomiser
 {
-    public function getRate(): intager;
 
-    public function getPrice(): IPrize;
+    public function init();
+
+    public function getRandom();
+
+    public function isValid();
 }

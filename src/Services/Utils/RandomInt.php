@@ -2,7 +2,7 @@
 
 namespace App\Services\Utils;
 
-class RandomInt
+class RandomInt implements IRandomiser
 {
     private $int;
     private $random;
