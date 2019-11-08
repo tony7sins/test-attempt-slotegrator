@@ -3,7 +3,8 @@
     <input type="hidden" name="token" value="{{ csrf_token('game-token') }}"/>
     <input type="hidden" name="game" value="secret"/>
 
-    <button type="submit">
+    <button type="submit" class="btn btn-success btn-lg  m-2">
+
         {% if signature is defined %}
             {{ signature}}
         {% else %}
