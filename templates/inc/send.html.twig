@@ -1,6 +1,7 @@
 <form action="{{ path('send')}}" method="post">
 
-    <input type="hidden" name="thingId" value="1"/>
+    <input type="hidden" name="thingId" value="{{ thingId }}"/>
+
 
     <button type="submit">Отправить мне приз</button>
 </form>
