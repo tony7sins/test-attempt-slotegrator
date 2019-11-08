@@ -43,6 +43,11 @@ class User implements UserInterface
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $course;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +141,18 @@ class User implements UserInterface
     public function setAddress(?string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getCourse(): ?float
+    {
+        return $this->course;
+    }
+
+    public function setCourse(float $course): self
+    {
+        $this->course = $course;
 
         return $this;
     }

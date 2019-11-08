@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191108092544 extends AbstractMigration
+final class Version20191108100030 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -25,7 +25,7 @@ final class Version20191108092544 extends AbstractMigration
         $this->addSql('CREATE TABLE money (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, amount INTEGER NOT NULL, is_enabled BOOLEAN NOT NULL)');
         $this->addSql('CREATE TABLE thing (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, is_enabled BOOLEAN NOT NULL)');
         $this->addSql('CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles CLOB NOT NULL --(DC2Type:json)
-        , password VARCHAR(255) NOT NULL, balls INTEGER NOT NULL, address VARCHAR(255) DEFAULT NULL)');
+        , password VARCHAR(255) NOT NULL, balls INTEGER NOT NULL, address VARCHAR(255) DEFAULT NULL, course DOUBLE PRECISION NOT NULL)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649F85E0677 ON user (username)');
     }
 

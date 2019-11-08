@@ -52,7 +52,8 @@ class AppFixtures extends Fixture
                 'password'
             ))
             ->setAddress('Парагвай, улица Хосэ Луиза 3-его д-13')
-            ->setBalls(0);
+            ->setBalls(0)
+            ->setCourse(1.5);
 
         $manager->persist($user);
 

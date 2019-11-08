@@ -26,12 +26,15 @@
             Боли́вар!
         </h3>
 
-        {# <button>Перевести на счет в банк</button> #}
+        {% include "inc/toballs.html.twig" with {
+            course: course,
+            moneyId: money.id
+        }%}
+
         {% include "inc/bank.html.twig" with {
             moneyId: money.id
         }%}
 
-        <button>Перевести на в баллы</button>
 
         {% include "inc/play.html.twig" with {
             signature: "Отказаться и сиграть еще!"

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Money;
 use App\Entity\Thing;
+use App\Entity\User;
 use App\Services\Games\GiftsGame;
 use App\Services\SPL as Prize;
 // use App\Services\SPL\IPrize;
@@ -77,8 +78,13 @@ class PrizeController extends AbstractController
 
     private function renderMoney(Money $money)
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        $course = $user->getCourse();
+
         return $this->render('prize/money.html.twig', [
             'money' => $money,
+            'course' => $course
         ]);
     }
 
