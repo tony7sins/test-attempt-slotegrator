@@ -20,12 +20,14 @@
     <div class="example-wrapper">
 
         <h1>ПРИЗ
-            {{ thing.name }}✅
+            {{ money.amount }}✅
         </h1>
 
-        <h3>Скоро будет отправлен
-            {{ user.username }}
-            по адресу - МОСКВА!</h3>
+        <h3>
+            Скоро будет отправлен пользователю
+            <b>{{ user.username }}</b>
+            на счет - СЧЕТ!
+        </h3>
 
         {% include "inc/play.html.twig" with {
             signature: "Cиграть еще!"

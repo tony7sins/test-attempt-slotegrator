@@ -22,11 +22,15 @@
         <h1>ВЫ ВЫИГРАЛИ ДЕНЬГИ ✅</h1>
         <h3>
             В размере
-            {{ money }}
+            {{ money.amount }}
             Боли́вар!
         </h3>
 
-        <button>Перевести на счет в банк</button>
+        {# <button>Перевести на счет в банк</button> #}
+        {% include "inc/bank.html.twig" with {
+            moneyId: money.id
+        }%}
+
         <button>Перевести на в баллы</button>
 
         {% include "inc/play.html.twig" with {

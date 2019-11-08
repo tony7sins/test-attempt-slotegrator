@@ -77,10 +77,8 @@ class PrizeController extends AbstractController
 
     private function renderMoney(Money $money)
     {
-        $moneyAmount = $money->getAmount();
-
         return $this->render('prize/money.html.twig', [
-            'money' => $moneyAmount,
+            'money' => $money,
         ]);
     }
 
