@@ -17,16 +17,21 @@
         }
     </style>
 
-    <div class="example-wrapper">{# <h1>ВЫ ВЫИГРАЛИ ПРИЗ ✅</h1> #}
-        {# <h3>{{ thing }}!</h3> #}
+    <div class="example-wrapper">
 
-        {# {% include "inc/send.html.twig" %}
-        
-        
-                        {% include "inc/play.html.twig" with {
-                            signature: "Отказаться и сиграть еще!"
-                        }%} #}
+        <h1>
+            Ваши быллы в сумме
+            {{ winBalls }}✅
+        </h1>
 
+        <h3>
+            У вас на счету
+            <b>{{ user.balls }}</b>
+        </h3>
+
+        {% include "inc/play.html.twig" with {
+            signature: "Cиграть еще!"
+        }%}
 
     </div>
 {% endblock %}

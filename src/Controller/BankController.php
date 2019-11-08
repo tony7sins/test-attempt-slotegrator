@@ -44,7 +44,7 @@ class BankController extends AbstractController
         // TODO if $thing not found - probably it is already won! Need to set a logic here
         if (!$money) {
             throw $this->createNotFoundException(
-                'Этот приз больше не доступен!' . $moneyId
+                "Этот приз id: {$moneyId} больше не доступен!"
             );
         }
 

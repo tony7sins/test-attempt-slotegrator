@@ -45,7 +45,7 @@ class SendController extends AbstractController
         // TODO if $thing not found - probably it is already won! Need to set a logic here
         if (!$thing) {
             throw $this->createNotFoundException(
-                'Этот приз больше не доступен!' . $thingId
+                "Этот приз id: {$thingId} больше не доступен!"
             );
         }
 

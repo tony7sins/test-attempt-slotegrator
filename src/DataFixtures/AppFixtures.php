@@ -50,7 +50,9 @@ class AppFixtures extends Fixture
             ->setPassword($this->encoder->encodePassword(
                 $user,
                 'password'
-            ));
+            ))
+            ->setAddress('Парагвай, улица Хосэ Луиза 3-его д-13')
+            ->setBalls(0);
 
         $manager->persist($user);
 

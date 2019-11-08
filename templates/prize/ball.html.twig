@@ -26,7 +26,11 @@
             {{ ball }}!
         </h3>
 
-        <button>Зачислисть на счет!</button>
+        {# <button>Зачислисть на счет!</button> #}
+        {% include "inc/ball.html.twig" with {
+            ballsAmount: ball
+        }%}
+
         {% include "inc/play.html.twig" %}
 
     </div>
