@@ -6,7 +6,7 @@ use App\Entity\Money;
 use App\Entity\Thing;
 use App\Services\Games\GiftsGame;
 use App\Services\SPL as Prize;
-use App\Services\SPL\IPrize;
+// use App\Services\SPL\IPrize;
 use App\Services\Utils\RandomInt;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,18 +33,19 @@ class PrizeController extends AbstractController
      * @Route("/prize", name="prize")
      */
     public function index(
-        // Request $request,
+        Request $request,
         GiftsGame $game,
         RandomInt $randomizer
     ) {
 
-        // dump($this->isCsrfTokenValid('game-token', $request->get('token')));
-
-        // if (
-        //     $request->get('game') && $request->get('game') === 'secret'
-        // ) {
-        //     dump(true);
-        // } else dump(false);
+        //! CSRF checking
+        dump($this->isCsrfTokenValid('game-token', $request->get('token')));
+        if (
+            $request->get('game') && $request->get('game') === 'secret'
+        ) {
+            dump(true);
+        } else dump(false);
+        //!
 
         $gift = null;
 
@@ -89,6 +90,7 @@ class PrizeController extends AbstractController
 
         return $this->render('prize/thing.html.twig', [
             'thing' => $thingName,
+            'thingId' => $thing->getId(),
         ]);
     }
 

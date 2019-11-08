@@ -17,19 +17,15 @@
         }
     </style>
 
-    <div class="example-wrapper">
+    <div class="example-wrapper">{# <h1>ВЫ ВЫИГРАЛИ ПРИЗ ✅</h1> #}
+        {# <h3>{{ thing }}!</h3> #}
 
-        <h1>ВЫ ВЫИГРАЛИ ПРИЗ ✅</h1>
-        <h3>{{ thing }}!</h3>
-
-        {% include "inc/send.html.twig" with {
-            thingId: thingId
-        }%}
-
-
-        {% include "inc/play.html.twig" with {
-            signature: "Отказаться и сиграть еще!"
-        }%}
+        {# {% include "inc/send.html.twig" %}
+        
+        
+                        {% include "inc/play.html.twig" with {
+                            signature: "Отказаться и сиграть еще!"
+                        }%} #}
 
 
     </div>

@@ -1,6 +1,5 @@
-<form
-    action="{{ path('prize')}}" method="post">
-    {# the argument of csrf_token() is an arbitrary string used to generate the token #}
+<form action="{{ path('prize')}}" method="post">
+
     <input type="hidden" name="token" value="{{ csrf_token('game-token') }}"/>
     <input type="hidden" name="game" value="secret"/>
 
